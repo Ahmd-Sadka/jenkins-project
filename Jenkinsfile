@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "docker build -t sadka/jenkins:${env.BUILD_NUMBER} ."
+                sh "docker build -t youssef138/jenkins:${env.BUILD_NUMBER} ."
             }
 
         }
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh "docker login -u $USERNAME -p $PASSWORD "
-                    sh "docker push sadka/jenkins:${env.BUILD_NUMBER}"
+                    sh "docker push youssef138/jenkins:${env.BUILD_NUMBER}"
                 }
             }
 
