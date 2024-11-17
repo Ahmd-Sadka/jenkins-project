@@ -11,7 +11,7 @@ pipeline {
         stage('login') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh "docker push sadka/jenkins/image:${env.BUILD_NUMBER}
+                    sh "docker push sadka/jenkins/image:${env.BUILD_NUMBER}"
                 }
             }
 
